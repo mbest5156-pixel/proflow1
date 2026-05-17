@@ -1,12 +1,1043 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>لوحة تحكم الموقع</title>
-    <!-- استدعاء سكريبت Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </head>
-  <body>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="description" content="Professional plumbing services available 24/7. Fast, reliable repairs, installations, and maintenance for homes and businesses.">
+    <meta name="keywords" content="plumber, plumbing services, leak repair, drain cleaning, water heater installation, emergency plumbing">
+    <title>ProFlow Plumbing Services | Emergency Plumber Available 24/7</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- PREMIUM GLOBAL NAVBAR STYLE --- */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1005;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #f1f5f9;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            text-decoration: none;
+        }
+        .brand-pro {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+        .brand-flow {
+            color: #0066cc;
+        }
+        .brand-tagline {
+            font-size: 8px;
+            font-weight: 700;
+            color: #94a3b8;
+            letter-spacing: 1.5px;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- BURGER ICON MENU ANIMATION --- */
+        .menu-icon {
+            width: 28px;
+            height: 20px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 1006;
+        }
+        @media (min-width: 768px) {
+            .menu-icon { display: none; }
+        }
+        .menu-icon span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #0f172a;
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transform-origin: left center;
+        }
+        .menu-icon.open span:nth-child(1) {
+            transform: rotate(45deg);
+            background-color: #ff3b3b;
+        }
+        .menu-icon.open span:nth-child(2) {
+            width: 0%;
+            opacity: 0;
+        }
+        .menu-icon.open span:nth-child(3) {
+            transform: rotate(-45deg);
+            background-color: #ff3b3b;
+        }
+
+        /* --- NAV LINKS RESPONSIVE LAYOUT --- */
+        .nav-links {
+            position: fixed;
+            top: 65px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 65px);
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 0;
+            transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 1000;
+            padding: 1.5rem 2rem 2rem 2rem;
+            overflow-y: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .nav-links.open {
+            left: 0;
+        }
+        @media (min-width: 768px) {
+            .nav-links {
+                position: static;
+                width: auto;
+                height: auto;
+                flex-direction: row;
+                padding: 0;
+                gap: 2rem;
+                background: transparent;
+                overflow-y: visible;
+                justify-content: center;
+                align-items: center;
+                border-top: none;
+            }
+        }
+        .nav-links a {
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+            position: relative;
+            width: 100%;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        @media (min-width: 768px) {
+            .nav-links a {
+                font-size: 0.95rem;
+                color: #475569;
+                width: auto;
+                padding: 0;
+                border-bottom: none;
+            }
+            .nav-links a::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: #0066cc;
+                transition: width 0.3s ease;
+            }
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+        }
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+
+        /* --- DROPDOWN PREMIUM MENU STYLE --- */
+        .nav-links .dropdown {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        @media (min-width: 768px) {
+            .nav-links .dropdown {
+                display: inline-block;
+                width: auto;
+                border-bottom: none;
+            }
+        }
+        .dropdown-trigger {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+            .dropdown-trigger {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                width: auto;
+            }
+        }
+        
+        /* التعديل هنا: جعل رابط About يملأ كامل مساحة المستطيل يساراً */
+        .dropdown-trigger a.about-main-link {
+            border-bottom: none !important;
+            padding: 1rem 0;
+            flex: 1; /* يجعله يتمدد ليأخذ كل المساحة المتبقية من العرض */
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .dropdown-trigger a.about-main-link {
+                padding: 0;
+                flex: none;
+                width: auto;
+            }
+        }
+        
+        .dropdown-arrow {
+            color: #475569;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            padding: 1rem 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px; /* مساحة ضغط مريحة للسهم فقط في اليمين */
+            height: 100%;
+        }
+        @media (min-width: 768px) {
+            .dropdown-arrow {
+                padding: 5px;
+                width: auto;
+            }
+        }
+        .dropdown-menu {
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background-color: #f8fafc;
+            width: 100%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+        }
+        @media (min-width: 768px) {
+            .dropdown-menu {
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%) translateY(10px);
+                background-color: #ffffff;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
+                max-height: none;
+                opacity: 0;
+                visibility: hidden;
+                overflow: visible;
+                margin-top: 0;
+                gap: 0.5rem;
+                padding: 0;
+                width: auto;
+                min-width: 200px;
+            }
+            .dropdown:hover .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(-50%) translateY(0);
+                padding: 0.75rem;
+            }
+            .dropdown:hover .dropdown-arrow {
+                transform: rotate(180deg);
+                color: #0066cc;
+            }
+        }
+        
+        .dropdown.active .dropdown-menu {
+            max-height: 200px;
+            opacity: 1;
+            visibility: visible;
+            padding: 0 0 1rem 1.5rem;
+        }
+        .dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
+            color: #0066cc;
+        }
+        .dropdown-menu a {
+            color: #475569 !important;
+            padding: 0.8rem 0 !important;
+            font-size: 1.1rem !important;
+            font-weight: 500 !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+            width: 100%;
+        }
+        .dropdown-menu a:last-child {
+            border-bottom: none !important;
+        }
+        @media (min-width: 768px) {
+            .dropdown-menu a {
+                font-size: 0.9rem !important;
+                color: #1e293b !important;
+                text-align: left;
+                padding: 0.6rem 1rem !important;
+                border-bottom: none !important;
+                border-radius: 8px;
+            }
+            .dropdown-menu a:hover {
+                background-color: #f1f5f9;
+                color: #0066cc !important;
+            }
+            .dropdown-menu a::after { display: none !important; }
+        }
+
+        @media (max-width: 600px) {
+            .brand-pro { font-size: 21px; }
+        }
+
+        /* --- REST OF WEBSITE CSS --- */
+        .floating-buttons { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 99; }
+        .float-btn { width: 56px; height: 56px; border-radius: 50%; background: #0066cc; color: white; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 8px 18px rgba(0,0,0,0.25); transition: transform 0.2s; text-decoration: none; cursor: pointer; border: none; }
+        .float-btn.whatsapp { background: #25D366; }
+        .float-btn.phone { background: #ff3b3b; }
+        .float-btn:hover { transform: scale(1.08); }
+        .hero { background: linear-gradient(135deg, #1a3a52 0%, #0052a3 100%); color: #ffffff; padding: 3rem 0 4rem; position: relative; overflow: hidden; }
+        .hero-content { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+        @media (min-width: 768px) { .hero-content { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+        .hero-text h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+        @media (min-width: 640px) { .hero-text h1 { font-size: 2.8rem; } }
+        .hero-text p { font-size: 1rem; color: #b0c4de; margin-bottom: 1.8rem; }
+        .btn { padding: 0.7rem 1.5rem; border: none; border-radius: 60px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; transition: all 0.2s; font-size: 0.9rem; }
+        @media (min-width: 640px) { .btn { padding: 0.8rem 1.8rem; font-size: 1rem; } }
+        .btn-call { background: #1e293b; color: white; width: 180px; height: 45px; }
+        .btn-service { background: #EAB010; color: black; width: 180px; height: 45px; white-space: nowrap; }
+        .btn-whatsapp { background: #1e293b; color: white; }
+        .btn:hover { transform: translateY(-3px); filter: brightness(1.05); }
+        .hero-buttons-wrapper { display: flex; flex-direction: column; gap: 1rem; }
+        .hero-buttons { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+        .mobile-side-image { display: none; }
+        @media (max-width: 768px) { .hero-buttons-wrapper { flex-direction: row; align-items: center; justify-content: space-between; gap: 1rem; } .hero-buttons { flex: 1; } .mobile-side-image { display: block; flex-shrink: 0; } .mobile-side-image img { width: 135px; height: 180px; object-fit: cover; border-radius: 1rem; box-shadow: 0 8px 16px rgba(0,0,0,0.2); transition: transform 0.3s ease; } .mobile-side-image img:hover { transform: scale(1.05); } }
+        .hero-image { position: relative; }
+        .hero-image img { width: 100%; border-radius: 1.2rem; box-shadow: 0 20px 30px rgba(0,0,0,0.3); }
+        .hero-badge { position: absolute; bottom: -1rem; left: -1rem; background: white; padding: 1rem; border-radius: 1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        @media (max-width: 560px) { .hero-badge { position: relative !important; margin-top: 1rem; display: inline-block; transform: translateX(-0%) !important; overflow: visible !important; bottom: 50px; left: -3% !important; } }
+        .hero-badge-icon { font-size: 1.8rem; margin-right: 0.5rem; }
+        .hero-badge-text p:first-child { font-weight: 800; color: #1a1a1a; }
+        .hero-badge-text p:last-child { font-size: 0.75rem; color: #666; }
+        .premium-badge{ display:inline-flex; align-items:center; gap:12px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.18); backdrop-filter:blur(12px); padding:10px 20px; border-radius:60px; color:#ffffff; font-size:14px; font-weight:600; margin-bottom:24px; }
+        .badge-divider{ width:6px; height:6px; background:#4ade80; border-radius:50%; }
+        .stats { margin-top: -45px; position: relative; z-index: 2; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .stat-card { background: white; padding: 30px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,.06); text-align: center; }
+        .stat-card h3 { font-size: 34px; color: #0ea5e9; margin-bottom: 8px; }
+        .stat-card p { color: #475569; font-size: 16px; }
+        .services { padding: 80px 0; background-color: #ffffff; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; color: #0f172a; margin-bottom: 15px; }
+        .section-title p { color: #64748b; max-width: 600px; margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .service-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid #f1f5f9; transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); border-color: #0066cc; }
+        .service-image { height: 220px; overflow: hidden; }
+        .service-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .service-card:hover .service-image img { transform: scale(1.1); }
+        .service-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .service-body h3 { font-size: 1.25rem; color: #1e293b; margin-bottom: 12px; }
+        .service-body p { font-size: 0.95rem; color: #64748b; margin-bottom: 20px; line-height: 1.6; }
+        .service-price { display: inline-block; background: #f0f7ff; color: #0066cc; padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px; align-self: flex-start; }
+        .btn-book { width: 100%; padding: 14px; background: #0066cc; color: white; border: none; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: background 0.3s ease; text-align: center; }
+        .btn-book:hover { background: #004a99; }
+        @media (max-width: 992px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; gap: 20px; } .section-title h2 { font-size: 2rem; } .service-image { height: 180px; } }
+        .gallery-section { background: #f8fafc; padding: 100px 0; }
+        .filter-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 50px; flex-wrap: wrap; }
+        .filter-tab { padding: 10px 22px; border: 1px solid #e2e8f0; background: #fff; border-radius: 50px; font-weight: 600; cursor: pointer; transition: 0.3s; color: #475569; }
+        .filter-tab.active, .filter-tab:hover { background: #0066cc; color: #fff; border-color: #0066cc; box-shadow: 0 8px 15px rgba(0, 102, 204, 0.2); }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .project-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: 0.3s; }
+        .project-card:hover { transform: translateY(-10px); }
+        .project-image { position: relative; height: 250px; overflow: hidden; }
+        .project-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .project-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 102, 204, 0.85); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; cursor: pointer; }
+        .project-image:hover .project-overlay { opacity: 1; }
+        .project-overlay i { color: white; font-size: 32px; }
+        .project-info { padding: 20px; }
+        .project-tag { font-size: 11px; font-weight: 700; color: #0066cc; background: #e0f2fe; padding: 4px 12px; border-radius: 50px; text-transform: uppercase; }
+        .project-info h3 { margin: 10px 0 5px; font-size: 18px; color: #0f172a; }
+        .project-info p { color: #64748b; font-size: 14px; }
+        .lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+        .lightbox-content { max-width: 85%; max-height: 85%; border-radius: 10px; }
+        .close-lightbox { position: absolute; top: 30px; right: 40px; color: white; font-size: 50px; cursor: pointer; }
+        .section { padding: 5rem 0; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .card { background: white; padding: 2rem; border-radius: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,.06); transition: .3s; }
+        .card:hover { transform: translateY(-8px); }
+        .review-stars { color: #fbbf24; margin-bottom: .7rem; }
+        .card h4 { margin-top: 1rem; color: #111827; }
+        .contact-section { background: #fcfdfe; padding: 100px 0; color: #1a1a1a; }
+        .contact-wrapper { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+        @media (max-width: 992px) { .contact-wrapper { grid-template-columns: 1fr; gap: 40px; } }
+        .contact-label { color: #0066cc; font-weight: 800; letter-spacing: 2px; font-size: 14px; margin-bottom: 15px; }
+        .contact-main-title { font-size: 42px; line-height: 1.2; margin-bottom: 20px; color: #0f172a; }
+        .contact-description { font-size: 18px; color: #475569; margin-bottom: 40px; max-width: 600px; }
+        .contact-methods-list { display: flex; flex-direction: column; gap: 25px; margin-bottom: 40px; }
+        .method-item { display: flex; align-items: center; gap: 20px; }
+        .method-icon { width: 65px; height: 65px; background: #ffffff; color: #0066cc; display: flex; align-items: center; justify-content: center; font-size: 28px; border-radius: 18px; box-shadow: 0 10px 25px rgba(0, 102, 204, 0.1); transition: 0.3s; }
+        .method-item:hover .method-icon { background: #0066cc; color: #ffffff; transform: translateY(-5px); }
+        .method-text span { display: block; font-size: 14px; color: #64748b; font-weight: 600; }
+        .method-text a { font-size: 22px; color: #0f172a; text-decoration: none; font-weight: 800; }
+        .service-area-badge { display: inline-flex; align-items: center; gap: 10px; background: #e0f2fe; color: #0369a1; padding: 12px 20px; border-radius: 50px; font-weight: 700; font-size: 15px; }
+        .emergency-box { background: #ffffff; padding: 40px; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; text-align: center; }
+        .emergency-header { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 15px; }
+        .emergency-header h3 { font-size: 22px; color: #ef4444; }
+        .pulse-red { width: 12px; height: 12px; background: #ef4444; border-radius: 50%; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); animation: pulse-red 2s infinite; }
+        @keyframes pulse-red { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+        .emergency-box p { color: #64748b; margin-bottom: 25px; }
+        .btn-emergency-now { width: 100%; background: #ef4444; color: white; border: none; padding: 18px; border-radius: 50px; font-size: 16px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2); }
+        .btn-emergency-now:hover { background: #dc2626; transform: translateY(-3px); box-shadow: 0 15px 25px rgba(239, 68, 68, 0.3); }
+        .trust-icons-mini { margin-top: 25px; display: flex; justify-content: center; gap: 15px; font-size: 13px; font-weight: 700; color: #94a3b8; }
+        .trust-icons-mini i { color: #10b981; }
+        @media (max-width: 600px) { .contact-main-title { font-size: 32px; } .method-text a { font-size: 18px; } }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); z-index: 9000; align-items: center; justify-content: center; }
+        .modal.active { display: flex; }
+        .modal-content { background: white; width: 90%; max-width: 450px; border-radius: 1.5rem; padding: 1.8rem; max-height: 90vh; overflow-y: auto; position: relative; }
+        .modal-content h2 { margin-bottom: 1rem; }
+        .form-status { display: none; padding: 12px; border-radius: 12px; margin-bottom: 15px; font-size: 0.9rem; font-weight: 600; text-align: center; }
+        .form-status.success { display: block; background: #d1fae5; color: #065f46; border: 1px solid #34d399; }
+        .form-status.error { display: block; background: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 0.25rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 1rem; font-family: inherit; }
+        .modal-buttons { display: flex; gap: 0.8rem; margin-top: 1.2rem; }
+        .modal-buttons button { flex: 1; padding: 0.75rem; border-radius: 2rem; font-weight: bold; border: none; cursor: pointer; transition: all 0.2s; }
+        .btn-submit { background: #0066cc; color: white; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-submit:disabled { background: #94a3b8; cursor: not-allowed; opacity: 0.7; }
+        .btn-cancel { background: #e2e8f0; }
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 2rem; }
+        @media (max-width: 640px) { .container { padding: 0 1rem; } .hero-text h1 { font-size: 1.9rem; } .section-title h2 { font-size: 1.7rem; } }
+        .emergency { background: linear-gradient(135deg, #0077ff, #003e88); color: white; padding: 3rem 0; }
+        .emergency-content { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+        .top-bar { background-color: #0a2a44; color: white; padding: 10px 20px; font-family: 'Inter', sans-serif; font-size: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.15); }
+        .phone-number { font-size: 16px; font-weight: bold; background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 40px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: white; }
+        .phone-number:hover { background: #10b981; transform: scale(1.02); }
+        @media (max-width: 600px) { .top-bar { flex-direction: column; text-align: center; padding: 8px 12px; } }
+        .about-section { padding: 100px 0; background: #ffffff; overflow: hidden; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-image-container { position: relative; }
+        .about-main-img { width: 100%; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); position: relative; z-index: 2; }
+        .experience-tag { position: absolute; bottom: 30px; right: -20px; background: #0066cc; color: white; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 15px 30px rgba(0,102,204,0.3); z-index: 3; animation: floatEffect 3s ease-in-out infinite; }
+        .experience-tag span:first-child { display: block; font-size: 42px; font-weight: 800; line-height: 1; }
+        .experience-tag span:last-child { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .about-content-text .sub-label { color: #0066cc; font-weight: 800; letter-spacing: 2px; font-size: 14px; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        .about-content-text h2 { font-size: 42px; color: #0f172a; line-height: 1.2; margin-bottom: 25px; }
+        .about-content-text p { font-size: 18px; color: #475569; margin-bottom: 30px; }
+        .values-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 40px; }
+        .value-item { display: flex; align-items: center; gap: 8px; background: #f8fafc; padding: 12px 8px; border-radius: 12px; border: 1px solid #f1f5f9; transition: 0.3s; white-space: nowrap; overflow: hidden; }
+        .value-item:hover { border-color: #0066cc; background: #fff; transform: translateY(-3px); }
+        .value-item i { color: #0066cc; font-size: 16px; flex-shrink: 0; }
+        .value-item span { font-weight: 700; color: #1e293b; font-size: 13px; }
+        @keyframes floatEffect { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @media (max-width: 992px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } .about-image-container { order: 2; } .experience-tag { right: 20px; } }
+        @media (max-width: 600px) { .about-content-text h2 { font-size: 30px; } .values-list { grid-template-columns: repeat(3, 1fr); gap: 8px; } .value-item { padding: 10px 5px; flex-direction: column; text-align: center; gap: 5px; } .value-item span { font-size: 9px; letter-spacing: -0.2px; } }
+        .service-areas { background-color: #f8fafc; padding: 5rem 0; }
+        .areas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .area-card { background: #ffffff; padding: 2rem 1.5rem; border-radius: 1rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; transition: all 0.3s ease; }
+        .area-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: #facc15; }
+        .area-card i { font-size: 2rem; color: #ef4444; margin-bottom: 1rem; }
+        .area-card h3 { font-size: 1.2rem; color: #0f172a; margin-bottom: 0.5rem; font-weight: 700; }
+        .area-card p { font-size: 0.85rem; color: #64748b; }
+        @media (max-width: 768px) { .service-areas { padding: 3rem 0; } .areas-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .area-card { padding: 1.2rem 0.8rem; } }
+        .btn-google-review { background: #ffffff; color: #334155; border: 1px solid #e2e8f0; display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 50px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); transition: all 0.2s ease; font-size: 0.95rem; white-space: nowrap; max-width: 100%; }
+        .btn-google-review img { width: 18px; height: 18px; flex-shrink: 0; }
+        .btn-google-review .stars { color: #f59e0b; letter-spacing: 0.5px; font-size: 0.9rem; }
+        .btn-google-review .review-count { color: #64748b; font-size: 0.85rem; font-weight: 500; }
+        .btn-google-review .review-word { color: #64748b; font-size: 0.85rem; font-weight: 500; }
+        .btn-google-review:hover { background-color: #f8fafc; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); }
+        @media (max-width: 768px) { .btn-google-review { padding: 10px 14px; gap: 6px; } .btn-google-review .review-word { display: none; } .btn-google-review .stars { font-size: 0.8rem; letter-spacing: 0px; } .btn-google-review { font-size: 0.85rem; } }
+        .hero { position: relative; color: #ffffff; padding: 3rem 0 4rem; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a3a52, #0052a3); z-index: 1; }
+        .hero::after { content: ''; position: absolute; top: 0; left: 0; width: 80%; height: 50%; background-image: url(''); background-size: cover; background-position: center; opacity: 0.25; z-index: 2; }
+        .hero .container { position: relative; z-index: 3; }
+    </style>
+	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="tel:+5550000000" class="phone-number">
+            <i class="fas fa-phone-alt"></i> 📞 Call Now: (555) 000-0000
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="#home" style="display: flex; align-items: center; text-decoration: none; gap: 10px;">
+                        <svg width="45" height="45" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="25" cy="25" r="23" stroke="#0066cc" stroke-width="4"/>
+                            <path d="M25 10C25 10 15 22 15 29C15 34.5228 19.4772 39 25 39C30.5228 39 35 34.5228 35 29C35 22 25 10 25 10Z" fill="#0066cc"/>
+                            <path d="M22 28L28 34M28 28L22 34" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <div class="logo-text">
+                            <span class="brand-pro">PRO<span class="brand-flow">FLOW</span></span>
+                            <p class="brand-tagline">24/7 EMERGENCY PLUMBING</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="menu-icon" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    
+                    <div class="dropdown">
+                        <div class="dropdown-trigger">
+                            <!-- التعديل هنا: رابط About يملأ كل المساحة المتبقية من المستطيل يساراً بفضل كلاس CSS المعدل -->
+                            <a href="#about" class="about-main-link">About</a>
+                            <!-- السهم مستقل ومحمي في أقصى اليمين لفتح القائمة فقط -->
+                            <span class="dropdown-arrow" id="arrowToggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a href="#about">Our Company</a>
+                            <a href="#serviceareas">Service Areas</a>
+                        </div>
+                    </div>
+
+                    <a href="#reviews">Reviews</a>
+                    <a href="#gallery">Our Work</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="tel:+212614441087" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
+        <a href="https://wa.me/212614441087?text=Hello,%20I%20need%20help%20with%20an%20emergency%20repair!" target="_blank" class="float-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="premium-badge">
+                        <span>Licensed &amp; Insured</span>
+                        <div class="badge-divider"></div>
+                        <span> Miami Experts</span>
+                    </div>
+                    <h1>Fast, Reliable & Professional Plumbing Services</h1>
+                    <p>Fast, reliable, and expert plumbing solutions for your home and business. Available 24/7 for emergencies.</p>
+                    <div class="hero-buttons-wrapper">
+                        <div class="hero-buttons">
+                            <button class="btn btn-call" onclick="window.open('tel:+212614441087')"><i class="fas fa-phone"></i> Call Now</button>
+                            <button class="btn btn-service" onclick="openBookingModal()"><i class="fas fa-tools"></i> Request Service</button>
+                            <a href="#reviews" class="btn btn-google-review">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo">
+                                <span class="rating-text">
+                                    <strong class="rating-number">4.9</strong>
+                                    <span class="stars">★★★★★</span>
+                                    <span class="review-count">(40+)</span>
+                                    <span class="review-word"> Reviews</span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="mobile-side-image">
+                            <img src="https://i.postimg.cc/1XHkp35k/Untitled-design-13-removebg-preview.png" alt="Plumbing service">
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://i.postimg.cc/05GKyFvp/Untitled-design-(12).png" alt="Plumbing pipes">
+                    <div class="hero-badge">
+                        <div style="display: flex; align-items: center;">
+                            <div class="hero-badge-icon">⏰</div>
+                            <div class="hero-badge-text">
+                                <p>Available 24/7</p>
+                                <p>For Emergency Service</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-card"><h3>12+</h3><p>Years Experience</p></div>
+            <div class="stat-card"><h3>500+</h3><p>Happy Customers</p></div>
+            <div class="stat-card"><h3>24/7</h3><p>Emergency Service</p></div>
+            <div class="stat-card"><h3>100%</h3><p>Satisfaction Guarantee</p></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <span style="color: #0066cc; font-weight: 800; letter-spacing: 2px; font-size: 14px; text-transform: uppercase;">Professional Solutions</span>
+                <h2 style="font-size: 2.5rem; margin-top: 10px;">Our Plumbing Services</h2>
+                <p>Reliable plumbing solutions tailored for Miami homes and businesses.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image"><img src="https://i.postimg.cc/NLhrFtVM/classicairecare-man-8689628.jpg" alt="Emergency Plumbing"></div>
+                    <div class="service-body">
+                        <h3>24/7 Emergency Repair</h3>
+                        <p>Burst pipes or flooding? Our team is available round the clock for urgent repairs.</p>
+                        <div class="service-price">Fast Response</div>
+                        <button class="btn-book" onclick="openBookingModal()">Book Now</button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image"><img src="https://i.postimg.cc/J03PRp6b/stevepb-plumbing-840835-1920.jpg" alt="Water Heaters"></div>
+                    <div class="service-body">
+                        <h3>Water Heater Service</h3>
+                        <p>Installation and repair of tankless and traditional water heaters for consistent hot water.</p>
+                        <div class="service-price">Expert Install</div>
+                        <button class="btn-book" onclick="openBookingModal()">Book Now</button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image"><img src="https://i.postimg.cc/05GKyFvp/Untitled-design-(12).png" alt="Leak Detection"></div>
+                    <div class="service-body">
+                        <h3>Leak Detection</h3>
+                        <p>Using advanced technology to find hidden leaks behind walls or under floors without damage.</p>
+                        <div class="service-price">Non-Invasive</div>
+                        <button class="btn-book" onclick="openBookingModal()">Book Now</button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image"><img src="https://i.postimg.cc/qv66nN0B/stevepb-plumbing-585658-1920.jpg" alt="Drain Cleaning"></div>
+                    <div class="service-body">
+                        <h3>Drain Cleaning</h3>
+                        <p>Professional hydro-jetting and rooter services to clear the toughest clogs and blockages.</p>
+                        <div class="service-price">Same Day Service</div>
+                        <button class="btn-book" onclick="openBookingModal()">Book Now</button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image"><img src="https://i.postimg.cc/hGrm4Hcd/pexels-hoang-nc-483165236-16047354.jpg" alt="Toilet and Faucet"></div>
+                    <div class="service-body">
+                        <h3>Fixtures & Toilets</h3>
+                        <p>Repairing leaky faucets and installing modern toilets or sinks to upgrade your home.</p>
+                        <div class="service-price">Quality Parts</div>
+                        <button class="btn-book" onclick="openBookingModal()">Book Now</button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image"><img src="https://i.postimg.cc/xT4y0C0D/industrial-pipes.jpg" alt="Sewer Line"></div>
+                    <div class="service-body">
+                        <h3>Sewer Line Repair</h3>
+                        <p>Comprehensive sewer camera inspections and main line repairs for residential properties.</p>
+                        <div class="service-price">Free Estimate</div>
+                        <button class="btn-book" onclick="openBookingModal()">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="emergency">
+        <div class="container emergency-content">
+            <div>
+                <h2>Need Emergency Plumbing Help?</h2>
+                <p>Call Now For Fast Same-Day Service</p>
+            </div>
+            <a href="tel:+212614441087" class="btn btn-call"><i class="fas fa-phone"></i> Emergency Call</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-container">
+                    <img src="https://i.postimg.cc/qqGXPzgr/fran1-plumber-228010.jpg" alt="ProFlow Plumber at Work" class="about-main-img">
+                    <div class="experience-tag"><span>12+</span><span>Years of<br>Excellence</span></div>
+                </div>
+                <div class="about-content-text">
+                    <span class="sub-label">Our Story</span>
+                    <h2>Setting the Standard in Miami Plumbing</h2>
+                    <p>Founded on the principles of integrity and unmatched craftsmanship, ProFlow Plumbing has grown from a local family business into one of Miami's most trusted service providers. We don't just fix pipes; we provide peace of mind through engineering excellence.</p>
+                    <div class="values-list">
+                        <div class="value-item"><i class="fas fa-check-circle"></i> <span>Upfront Pricing</span></div>
+                        <div class="value-item"><i class="fas fa-check-circle"></i> <span>Licensed Experts</span></div>
+                        <div class="value-item"><i class="fas fa-check-circle"></i> <span>Modern Equipment</span></div>
+                        <div class="value-item"><i class="fas fa-check-circle"></i> <span>24/7 Availability</span></div>
+                        <div class="value-item"><i class="fas fa-check-circle"></i> <span>Clean Workspace</span></div>
+                        <div class="value-item"><i class="fas fa-check-circle"></i> <span>Guaranteed Work</span></div>
+                    </div>
+                    <button class="btn btn-service" onclick="openBookingModal()">Learn More About Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Recent Projects</h2>
+                <p>Quality plumbing solutions delivered across Miami-Dade. Take a look at our latest success stories.</p>
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Projects</button>
+                <button class="filter-tab" data-filter="repair">Repairs</button>
+                <button class="filter-tab" data-filter="installation">Installations</button>
+                <button class="filter-tab" data-filter="drain">Drain Cleaning</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="project-card repair">
+                    <div class="project-image">
+                        <img src="https://i.postimg.cc/NLhrFtVM/classicairecare-man-8689628.jpg" alt="Emergency Repair">
+                        <div class="project-overlay" onclick="openLightbox(this.parentElement.querySelector('img').src)"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="project-info"><span class="project-tag">Emergency Repair</span><h3>Kitchen Pipe Replacement</h3><p>Fixed a major burst pipe in Coral Gables home.</p></div>
+                </div>
+                <div class="project-card installation">
+                    <div class="project-image">
+                        <img src="https://i.postimg.cc/hGrm4Hcd/pexels-hoang-nc-483165236-16047354.jpg" alt="Bathroom Upgrade">
+                        <div class="project-overlay" onclick="openLightbox(this.parentElement.querySelector('img').src)"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="project-info"><span class="project-tag">Installation</span><h3>Luxury Faucet Upgrade</h3><p>Modern fixture installation in Miami Beach.</p></div>
+                </div>
+                <div class="project-card drain">
+                    <div class="project-image">
+                        <img src="https://i.postimg.cc/qv66nN0B/stevepb-plumbing-585658-1920.jpg" alt="Main Line Clearing">
+                        <div class="project-overlay" onclick="openLightbox(this.parentElement.querySelector('img').src)"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="project-info"><span class="project-tag">Drain Cleaning</span><h3>Main Sewer Line Clearing</h3><p>Hydro-jetting service for a local restaurant.</p></div>
+                </div>
+                <div class="project-card installation">
+                    <div class="project-image">
+                        <img src="https://i.postimg.cc/J03PRp6b/stevepb-plumbing-840835-1920.jpg" alt="Water Heater">
+                        <div class="project-overlay" onclick="openLightbox(this.parentElement.querySelector('img').src)"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="project-info"><span class="project-tag">Water Heater</span><h3>Tankless System Install</h3><p>Energy-efficient heater setup in Brickell.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Reviews Section -->
+    <section class="section" id="reviews">
+        <div class="container">
+            <div class="section-title"><h2>Google Reviews</h2><p>Real feedback from satisfied customers.</p></div>
+            <div class="reviews-grid">
+                <div class="card"><div class="review-stars">★★★★★</div><p>Excellent plumbing service and very professional team.</p><h4>Khalid R.</h4></div>
+                <div class="card"><div class="review-stars">★★★★★</div><p>Fast response and fair pricing. Highly recommended.</p><h4>Sara T.</h4></div>
+                <div class="card"><div class="review-stars">★★★★★</div><p>Fixed our leak within one hour. Amazing experience.</p><h4>Noura K.</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info-side">
+                    <div class="contact-label">CONTACT US</div>
+                    <h2 class="contact-main-title">Ready to Fix Your Plumbing Issue?</h2>
+                    <p class="contact-description">Our expert technicians are standing by 24/7. Whether it's a minor leak or a major emergency, we've got you covered with upfront pricing and guaranteed work.</p>
+                    <div class="contact-methods-list">
+                        <div class="method-item">
+                            <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="method-text"><span>Give Us a Call</span><a href="tel:+15550000000">(555) 000-0000</a></div>
+                        </div>
+                        <div class="method-item">
+                            <div class="method-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="method-text"><span>WhatsApp Support</span><a href="https://wa.me/212614441087">Chat With an Expert</a></div>
+                        </div>
+                        <div class="method-item">
+                            <div class="method-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="method-text"><span>Email Inquiries</span><a href="mailto:info@proflow.com">info@proflowplumbing.com</a></div>
+                        </div>
+                    </div>
+                    <div class="service-area-badge"><i class="fas fa-map-marker-alt"></i><span>Proudly Serving All Miami-Dade County Areas</span></div>
+                </div>
+                <div class="contact-visual-side">
+                    <div class="emergency-box">
+                        <div class="emergency-header"><div class="pulse-red"></div><h3>24/7 Emergency Dispatch</h3></div>
+                        <p>Average arrival time: <strong>45-60 minutes</strong></p>
+                        <button class="btn-emergency-now" onclick="window.open('tel:+212614441087')"><i class="fas fa-bolt"></i> GET EMERGENCY HELP NOW</button>
+                        <div class="trust-icons-mini"><span><i class="fas fa-certificate"></i> Licensed</span><span><i class="fas fa-shield-alt"></i> Insured</span><span><i class="fas fa-star"></i> 5-Star Rated</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas Section -->
+    <section class="service-areas" id="serviceareas">
+        <div class="container">
+            <div class="service-header" style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; color: #1e293b; font-weight: 800;">Our Service Areas</h2>
+                <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 1rem auto 0;">We provide fast, 24/7 emergency plumbing services across the following regions.</p>
+            </div>
+            <div class="areas-grid">
+                <div class="area-card"><i class="fas fa-map-marker-alt"></i><h3>Main City Center</h3><p>Response within 20 mins</p></div>
+                <div class="area-card"><i class="fas fa-map-marker-alt"></i><h3>North District</h3><p>Response within 30 mins</p></div>
+                <div class="area-card"><i class="fas fa-map-marker-alt"></i><h3>East Side</h3><p>Response within 25 mins</p></div>
+                <div class="area-card"><i class="fas fa-map-marker-alt"></i><h3>West Suburbs</h3><p>Response within 35 mins</p></div>
+            </div>
+            <div class="areas-footer" style="text-align: center; margin-top: 3rem;">
+                <p style="font-weight: 700; color: #0f172a;">Don't see your area? <a href="tel:+212614441087" style="color: #059669; text-decoration: none;">Call us anyway</a>, we might still be able to reach you!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <h2>📋 Schedule Service</h2>
+            <div id="formStatus" class="form-status"></div>
+            <form id="bookingForm" onsubmit="handleSubmit(event)">
+                <input type="hidden" name="access_key" value="a1c907ce-bd85-4466-be31-332f3ab84373">
+                <input type="hidden" name="subject" value="New Service Booking Request - ProFlow">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <div class="form-group"><label>Full Name *</label><input type="text" name="name" required></div>
+                <div class="form-group"><label>Phone *</label><input type="tel" name="phone" required></div>
+                <div class="form-group"><label>Service Type</label><select name="service" required><option value="">Select</option><option>Leak Repair</option><option>Sink Installation</option><option>Toilet Installation</option><option>Drain Unclogging</option><option>Water Heater Installation</option><option>Emergency Service</option></select></div>
+                <div class="form-group"><label>Preferred Time</label><select name="date"><option>Emergency Now</option><option>Today</option><option>Tomorrow</option><option>Flexible</option></select></div>
+                <div class="form-group"><label>Message</label><textarea name="message" rows="2" placeholder="Describe issue..."></textarea></div>
+                <div class="modal-buttons">
+                    <button type="submit" id="submitBtn" class="btn-submit"><i class="fas fa-paper-plane"></i> Submit Request</button>
+                    <button type="button" class="btn-cancel" onclick="closeBookingModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ProFlow Plumbing. All Rights Reserved – Fast & Reliable Service 24/7</p>
+            <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.2rem;">
+                <a href="#" style="color:#94a3b8; text-decoration:none;">Facebook</a>
+                <a href="#" style="color:#94a3b8; text-decoration:none;">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinksMenu = document.getElementById('navLinks');
+        const dropdownElement = document.querySelector('.dropdown');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('open');
+            navLinksMenu.classList.toggle('open');
+            
+            if(!navLinksMenu.classList.contains('open')) {
+                dropdownElement.classList.remove('active');
+            }
+            document.body.style.overflow = 'auto'; 
+        });
+
+        // Close menu on normal link clicks (including the About link itself)
+        document.querySelectorAll('.nav-links > a, .dropdown-menu a, .about-main-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('open');
+                navLinksMenu.classList.remove('open');
+                dropdownElement.classList.remove('active');
+            });
+        });
+
+        // Control dropdown arrow for mobile ONLY
+        const arrowToggle = document.getElementById('arrowToggle');
+        arrowToggle.addEventListener('click', (e) => {
+            if (window.innerWidth < 768) {
+                e.preventDefault();
+                e.stopPropagation(); 
+                dropdownElement.classList.toggle('active'); 
+            }
+        });
+
+        // Close dropdown when clicking anywhere else
+        document.addEventListener('click', (e) => {
+            if (dropdownElement && !dropdownElement.contains(e.target)) {
+                dropdownElement.classList.remove('active');
+            }
+        });
+
+        // Modal logic
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.add('active');
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.style.display = 'none';
+            statusDiv.className = 'form-status';
+        }
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+        }
+        window.addEventListener('click', (e) => {
+            if(e.target === document.getElementById('bookingModal')) closeBookingModal();
+        });
+
+        // Handle Web3Forms submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('bookingForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const statusDiv = document.getElementById('formStatus');
+            const name = form.name.value.trim();
+            const phone = form.phone.value.trim();
+            const service = form.service.value;
+
+            if(!name || !phone || !service) {
+                statusDiv.textContent = "Please fill required fields.";
+                statusDiv.className = "form-status error";
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            const formData = new FormData(form);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    statusDiv.textContent = "Thank you! Your request has been submitted successfully.";
+                    statusDiv.className = "form-status success";
+                    form.reset();
+                    setTimeout(() => { closeBookingModal(); }, 2500);
+                } else {
+                    statusDiv.textContent = json.message || "Something went wrong. Please try again.";
+                    statusDiv.className = "form-status error";
+                }
+            })
+            .catch(error => {
+                statusDiv.textContent = "Network error. Please check your connection.";
+                statusDiv.className = "form-status error";
+            })
+            .then(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Request';
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if(targetId && targetId !== "#") {
+                    const target = document.querySelector(targetId);
+                    if(target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Lightbox
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            lightbox.style.display = 'flex';
+            img.src = src;
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Gallery Filtering
+        const tabs = document.querySelectorAll('.filter-tab');
+        const cards = document.querySelectorAll('.project-card');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const filter = tab.dataset.filter;
+                cards.forEach(card => {
+                    if (filter === 'all' || card.classList.contains(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+	
+	<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</body>
 </html>
+
