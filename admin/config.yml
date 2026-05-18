@@ -2,25 +2,24 @@ backend:
   name: git-gateway
   branch: main
 
-site_url: https://scintillating-froyo-b6fa3a.netlify.app
-
-local_backend: true
-
-media_folder: "images"
-public_folder: "/images"
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "settings"
-    label: "إعدادات الموقع"
-    delete: false
-    editor:
-      preview: false
+    label: "⚙️ إعدادات الموقع"
     files:
       - name: "general"
-        label: "البيانات الأساسية للموقع"
-        file: "data.json" # هنا جعلنا الحفظ يتم داخل ملف بيانات نظيف
+        label: "معلومات الاتصال"
+        file: "data/settings.json"
         fields:
-          - { label: "رقم الهاتف المباشر", name: "phone_number", widget: "string", hint: "اكتب الرقم مع رمز الدولة مثل +2126000000" }
-          - { label: "عنوان مقر العمل", name: "address", widget: "string", hint: "مثال: Ouled Teima, Morocco" }
-          - { label: "العنوان الرئيسي الكبير (Hero Title)", name: "hero_title", widget: "string", hint: "العنوان العريض الذي يظهر في بداية الموقع" }
+          - { label: "رقم الهاتف", name: "phone", widget: "string" }
+          - { label: "رقم WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "البريد الإلكتروني", name: "email", widget: "string" }
 
+      - name: "hero"
+        label: "🎯 القسم الرئيسي"
+        file: "data/hero.json"
+        fields:
+          - { label: "العنوان الكبير", name: "title", widget: "string" }
+          - { label: "النص الوصفي", name: "description", widget: "text" }
