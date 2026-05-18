@@ -2,7 +2,6 @@ backend:
   name: git-gateway
   branch: main
 
-# إضافة رابط موقعك لتتعرف عليه بوابة Git Gateway فوراً
 site_url: https://scintillating-froyo-b6fa3a.netlify.app
 
 local_backend: true
@@ -12,14 +11,16 @@ public_folder: "/images"
 
 collections:
   - name: "settings"
-    label: "الموقع إعدادات"
+    label: "إعدادات الموقع"
     delete: false
     editor:
       preview: false
     files:
       - name: "general"
-        label: "البيانات الأساسية"
+        label: "البيانات الأساسية للموقع"
         file: "index.html"
         fields:
-          - { label: "رقم الهاتف", name: "phone_number", widget: "string" }
-          - { label: "العنوان", name: "address", widget: "string" }
+          - { label: "رقم الهاتف المباشر", name: "phone_number", widget: "string", hint: "اكتب الرقم مع رمز الدولة مثل +2126000000" }
+          - { label: "عنوان مقر العمل", name: "address", widget: "string", hint: "مثال: Miami, FL or Ouled Teima, Morocco" }
+          - { label: "العنوان الرئيسي الكبير (Hero Title)", name: "hero_title", widget: "string", hint: "العنوان العريض الذي يظهر في بداية الموقع لشد انتباه الزبون" }
+
