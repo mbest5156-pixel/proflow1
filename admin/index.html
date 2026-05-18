@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>لوحة تحكم الموقع</title>
-    <!-- استدعاء سكريبت Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </head>
-  <body>
-  </body>
+    <title>Content Manager</title>
+    <!-- سكريبت الهوية من Netlify -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
+    <!-- ستايل إضافي لضمان عدم حدوث تعارض في أبعاد اللوحة -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. أضفنا هذا الوسم لتستهدفه اللوحة وتضع محتواها داخله ولا تظهر صفحة بيضاء -->
+    <div id="nc-root"></div>
+
+    <!-- 2. استخدمنا إصداراً مستقراً جداً يتوافق مع ملف الـ config الخاص بك -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+</body>
 </html>
+
