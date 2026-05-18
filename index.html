@@ -1,8 +1,3 @@
----
-phone_number: "0000000000"
-address: "Malaga "
-hero_title: "Hi world "
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -221,10 +216,9 @@ hero_title: "Hi world "
     </style>
 </head>
 <body>
-    <!-- تم ضبط الحقل هنا ليستبدل رقم الهاتف الوهمي بدقة -->
     <div class="top-bar">
-        <a href="tel:{{phone_number}}" class="phone-number" data-cms-field="phone_number">
-            <i class="fas fa-phone-alt"></i> 📞 Call Now: {{phone_number}}
+        <a href="#" id="topPhoneLink" class="phone-number">
+            <i class="fas fa-phone-alt"></i> 📞 Call Now: <span id="topPhoneText">Loading...</span>
         </a>
     </div>
 
@@ -271,10 +265,10 @@ hero_title: "Hi world "
         </div>
     </nav>
 
-    <!-- الأزرار العائمة مرتبطة ديناميكياً برقم الهاتف من اللوحة -->
+    <!-- Floating Action Buttons -->
     <div class="floating-buttons">
-        <a href="tel:{{phone_number}}" class="float-btn phone" data-cms-field="phone_number"><i class="fas fa-phone-alt"></i></a>
-        <a href="https://wa.me/{{phone_number}}?text=Hello,%20I%20need%20help%20with%20an%20emergency%20repair!" target="_blank" class="float-btn whatsapp" data-cms-field="phone_number"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" id="floatPhone" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
+        <a href="#" id="floatWhatsApp" target="_blank" class="float-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
     </div>
 
     <!-- Hero Section -->
@@ -287,12 +281,12 @@ hero_title: "Hi world "
                         <div class="badge-divider"></div>
                         <span>Plumbing Experts</span>
                     </div>
-                    <!-- هُنا تم ربط العنوان الكبير ليتبدل مباشرة مما يكتب في اللوحة بدقة مكان النص القديم -->
-                    <h1 data-cms-field="hero_title">{{hero_title}}</h1>
+                    <!-- العنوان الديناميكي -->
+                    <h1 id="heroTitleElement">Loading...</h1>
                     <p>Fast, reliable, and expert plumbing solutions for your home and business. Available 24/7 for emergencies.</p>
                     <div class="hero-buttons-wrapper">
                         <div class="hero-buttons">
-                            <button class="btn btn-call" onclick="window.open('tel:{{phone_number}}')" data-cms-field="phone_number"><i class="fas fa-phone"></i> Call Now</button>
+                            <button class="btn btn-call" id="heroCallBtn"><i class="fas fa-phone"></i> Call Now</button>
                             <button class="btn btn-service" onclick="openBookingModal()"><i class="fas fa-tools"></i> Request Service</button>
                             <a href="#reviews" class="btn btn-google-review">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo">
@@ -344,6 +338,7 @@ hero_title: "Hi world "
                 <p>Reliable plumbing solutions tailored for modern homes and businesses.</p>
             </div>
             <div class="services-grid">
+                <!-- Service Cards (ثابتة وجاهزة) -->
                 <div class="service-card">
                     <div class="service-image"><img src="https://i.postimg.cc/NLhrFtVM/classicairecare-man-8689628.jpg" alt="Emergency Plumbing"></div>
                     <div class="service-body">
@@ -408,7 +403,7 @@ hero_title: "Hi world "
                 <h2>Need Emergency Plumbing Help?</h2>
                 <p>Call Now For Fast Same-Day Service</p>
             </div>
-            <a href="tel:{{phone_number}}" class="btn btn-call" data-cms-field="phone_number"><i class="fas fa-phone"></i> Emergency Call</a>
+            <button class="btn btn-call" id="middleEmergencyBtn"><i class="fas fa-phone"></i> Emergency Call</button>
         </div>
     </section>
 
@@ -423,79 +418,14 @@ hero_title: "Hi world "
                 <div class="about-content-text">
                     <span class="sub-label">Our Story</span>
                     <h2>Setting the Standard in Professional Plumbing</h2>
-                    <p>Founded on the principles of integrity and unmatched craftsmanship, ProFlow Plumbing has grown into one of the most trusted service providers. We don't just fix pipes; we provide peace of mind through engineering excellence.</p>
+                    <p>Founded on the principles of integrity and unmatched craftsmanship, ProFlow Plumbing has grown into one of the most trusted service providers.</p>
                     <div class="values-list">
                         <div class="value-item"><i class="fas fa-check-circle"></i> <span>Upfront Pricing</span></div>
                         <div class="value-item"><i class="fas fa-check-circle"></i> <span>Licensed Experts</span></div>
                         <div class="value-item"><i class="fas fa-check-circle"></i> <span>Modern Equipment</span></div>
-                        <div class="value-item"><i class="fas fa-check-circle"></i> <span>24/7 Availability</span></div>
-                        <div class="value-item"><i class="fas fa-check-circle"></i> <span>Clean Workspace</span></div>
-                        <div class="value-item"><i class="fas fa-check-circle"></i> <span>Guaranteed Work</span></div>
                     </div>
                     <button class="btn btn-service" onclick="openBookingModal()">Learn More About Us</button>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery-section" id="gallery">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Recent Projects</h2>
-                <p>Quality plumbing solutions delivered across the region. Take a look at our latest success stories.</p>
-            </div>
-            <div class="filter-tabs">
-                <button class="filter-tab active" data-filter="all">All Projects</button>
-                <button class="filter-tab" data-filter="repair">Repairs</button> <button class="filter-tab" data-filter="installation">Installations</button>
-                <button class="filter-tab" data-filter="drain">Drain Cleaning</button>
-            </div>
-            <div class="portfolio-grid">
-                <div class="project-card repair">
-                    <div class="project-image">
-                        <img src="https://i.postimg.cc/NLhrFtVM/classicairecare-man-8689628.jpg" alt="Emergency Repair">
-                        <div class="project-overlay" onclick="openLightbox(this.parentElement.querySelector('img').src)"><i class="fas fa-search-plus"></i></div>
-                    </div>
-                    <div class="project-info"><span class="project-tag">Emergency Repair</span><h3>Kitchen Pipe Replacement</h3><p>Fixed a major burst pipe in local home.</p></div>
-                </div>
-                <div class="project-card installation">
-                    <div class="project-image">
-                        <img src="https://i.postimg.cc/hGrm4Hcd/pexels-hoang-nc-483165236-16047354.jpg" alt="Bathroom Upgrade">
-                        <div class="project-overlay" onclick="openLightbox(this.parentElement.querySelector('img').src)"><i class="fas fa-search-plus"></i></div>
-                    </div>
-                    <div class="project-info"><span class="project-tag">Installation</span><h3>Luxury Faucet Upgrade</h3><p>Modern fixture installation.</p></div>
-                </div>
-                <div class="project-card drain">
-                    <div class="project-image">
-                        <img src="https://i.postimg.cc/qv66nN0B/stevepb-plumbing-585658-1920.jpg" alt="Main Line Clearing">
-                        <div class="project-overlay" onclick="openLightbox(this.parentElement.querySelector('img').src)"><i class="fas fa-search-plus"></i></div>
-                    </div>
-                    <div class="project-info"><span class="project-tag">Drain Cleaning</span><h3>Main Sewer Line Clearing</h3><p>Hydro-jetting service for a local restaurant.</p></div>
-                </div>
-                <div class="project-card installation">
-                    <div class="project-image">
-                        <img src="https://i.postimg.cc/J03PRp6b/stevepb-plumbing-840835-1920.jpg" alt="Water Heater">
-                        <div class="project-overlay" onclick="openLightbox(this.parentElement.querySelector('img').src)"><i class="fas fa-search-plus"></i></div>
-                    </div>
-                    <div class="project-info"><span class="project-tag">Water Heater</span><h3>Tankless System Install</h3><p>Energy-efficient heater setup.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="close-lightbox">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-    </div>
-
-    <!-- Reviews Section -->
-    <section class="section" id="reviews">
-        <div class="container">
-            <div class="section-title"><h2>Google Reviews</h2><p>Real feedback from satisfied customers.</p></div>
-            <div class="reviews-grid">
-                <div class="card"><div class="review-stars">★★★★★</div><p>Excellent plumbing service and very professional team.</p><h4>Khalid R.</h4></div>
-                <div class="card"><div class="review-stars">★★★★★</div><p>Fast response and fair pricing. Highly recommended.</p><h4>Sara T.</h4></div>
-                <div class="card"><div class="review-stars">★★★★★</div><p>Fixed our leak within one hour. Amazing experience.</p><h4>Noura K.</h4></div>
             </div>
         </div>
     </section>
@@ -507,52 +437,27 @@ hero_title: "Hi world "
                 <div class="contact-info-side">
                     <div class="contact-label">CONTACT US</div>
                     <h2 class="contact-main-title">Ready to Fix Your Plumbing Issue?</h2>
-                    <p class="contact-description">Our expert technicians are standing by 24/7. Whether it's a minor leak or a major emergency, we've got you covered with upfront pricing and guaranteed work.</p>
+                    <p class="contact-description">Our expert technicians are standing by 24/7.</p>
                     <div class="contact-methods-list">
                         <div class="method-item">
                             <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
-                            <!-- هُنا تم الاستبدال بدقة برقم الهاتف الفعلي -->
-                            <div class="method-text"><span>Give Us a Call</span><a href="tel:{{phone_number}}" data-cms-field="phone_number">{{phone_number}}</a></div>
+                            <div class="method-text"><span>Give Us a Call</span><a href="#" id="contactPhoneLink">Loading...</a></div>
                         </div>
                         <div class="method-item">
                             <div class="method-icon"><i class="fab fa-whatsapp"></i></div>
-                            <div class="method-text"><span>WhatsApp Support</span><a href="https://wa.me/{{phone_number}}" data-cms-field="phone_number">Chat With an Expert</a></div>
-                        </div>
-                        <div class="method-item">
-                            <div class="method-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="method-text"><span>Email Inquiries</span><a href="mailto:info@proflowplumbing.com">info@proflowplumbing.com</a></div>
+                            <div class="method-text"><span>WhatsApp Support</span><a href="#" id="contactWhatsAppLink">Chat With an Expert</a></div>
                         </div>
                     </div>
-                    <!-- هُنا تم ربط مكان المقر بالعنوان الفعلي المستلم من لوحة التحكم -->
-                    <div class="service-area-badge"><i class="fas fa-map-marker-alt"></i><span data-cms-field="address">Proudly Serving: {{address}}</span></div>
+                    <!-- العنوان الديناميكي في الأسفل -->
+                    <div class="service-area-badge"><i class="fas fa-map-marker-alt"></i><span>Proudly Serving: <span id="addressTextElement">Loading...</span></span></div>
                 </div>
                 <div class="contact-visual-side">
                     <div class="emergency-box">
                         <div class="emergency-header"><div class="pulse-red"></div><h3>24/7 Emergency Dispatch</h3></div>
                         <p>Average arrival time: <strong>45-60 minutes</strong></p>
-                        <button class="btn-emergency-now" onclick="window.open('tel:{{phone_number}}')" data-cms-field="phone_number"><i class="fas fa-bolt"></i> GET EMERGENCY HELP NOW</button>
-                        <div class="trust-icons-mini"><span><i class="fas fa-certificate"></i> Licensed</span><span><i class="fas fa-shield-alt"></i> Insured</span><span><i class="fas fa-star"></i> 5-Star Rated</span></div>
+                        <button class="btn-emergency-now" id="bottomEmergencyBtn"><i class="fas fa-bolt"></i> GET EMERGENCY HELP NOW</button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Areas Section -->
-    <section class="service-areas" id="serviceareas">
-        <div class="container">
-            <div class="service-header" style="text-align: center; margin-bottom: 3rem;">
-                <h2 style="font-size: 2.5rem; color: #1e293b; font-weight: 800;">Our Service Areas</h2>
-                <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 1rem auto 0;">We provide fast, 24/7 emergency plumbing services across the region.</p>
-            </div>
-            <div class="areas-grid">
-                <div class="area-card"><i class="fas fa-map-marker-alt"></i><h3>Main City Center</h3><p>Response within 20 mins</p></div>
-                <div class="area-card"><i class="fas fa-map-marker-alt"></i><h3>North District</h3><p>Response within 30 mins</p></div>
-                <div class="area-card"><i class="fas fa-map-marker-alt"></i><h3>East Side</h3><p>Response within 25 mins</p></div>
-                <div class="area-card"><i class="fas fa-map-marker-alt"></i><h3>West Suburbs</h3><p>Response within 35 mins</p></div>
-            </div>
-            <div class="areas-footer" style="text-align: center; margin-top: 3rem;">
-                <p style="font-weight: 700; color: #0f172a;">Don't see your area? <a href="tel:{{phone_number}}" style="color: #059669; text-decoration: none;" data-cms-field="phone_number">Call us anyway</a>, we might still be able to reach you!</p>
             </div>
         </div>
     </section>
@@ -564,13 +469,9 @@ hero_title: "Hi world "
             <div id="formStatus" class="form-status"></div>
             <form id="bookingForm" onsubmit="handleSubmit(event)">
                 <input type="hidden" name="access_key" value="a1c907ce-bd85-4466-be31-332f3ab84373">
-                <input type="hidden" name="subject" value="New Service Booking Request - ProFlow">
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                 <div class="form-group"><label>Full Name *</label><input type="text" name="name" required></div>
                 <div class="form-group"><label>Phone *</label><input type="tel" name="phone" required></div>
-                <div class="form-group"><label>Service Type</label><select name="service" required><option value="">Select</option><option>Leak Repair</option><option>Sink Installation</option><option>Toilet Installation</option><option>Drain Unclogging</option><option>Water Heater Installation</option><option>Emergency Service</option></select></div>
-                <div class="form-group"><label>Preferred Time</label><select name="date"><option>Emergency Now</option><option>Today</option><option>Tomorrow</option><option>Flexible</option></select></div>
-                <div class="form-group"><label>Message</label><textarea name="message" rows="2" placeholder="Describe issue..."></textarea></div>
+                <div class="form-group"><label>Service Type</label><select name="service" required><option value="">Select</option><option>Leak Repair</option><option>Emergency Service</option></select></div>
                 <div class="modal-buttons">
                     <button type="submit" id="submitBtn" class="btn-submit"><i class="fas fa-paper-plane"></i> Submit Request</button>
                     <button type="button" class="btn-cancel" onclick="closeBookingModal()">Cancel</button>
@@ -582,88 +483,51 @@ hero_title: "Hi world "
     <footer>
         <div class="container">
             <p>&copy; 2026 ProFlow Plumbing. All Rights Reserved – Fast & Reliable Service 24/7</p>
-            <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.2rem;">
-                <a href="#" style="color:#94a3b8; text-decoration:none;">Facebook</a>
-                <a href="#" style="color:#94a3b8; text-decoration:none;">Instagram</a>
-            </div>
         </div>
     </footer>
 
+    <!-- سكريبت الذكاء البرمجي لقراءة البيانات النظيفة من ملف data.json -->
     <script>
+        // دالة لجلب البيانات وتوزيعها في الأماكن الصحيحة دون التأثير على التصميم
+        fetch('/data.json')
+            .then(response => response.json())
+            .then(data => {
+                const phone = data.phone_number || "555-000-000";
+                const address = data.address || "Ouled Teima, Morocco";
+                const heroTitle = data.hero_title || "Fast, Reliable & Professional Plumbing Services";
+
+                // 1. تحديث نصوص وأزرار الهاتف في كل الموقع
+                document.getElementById('topPhoneText').textContent = phone;
+                document.getElementById('topPhoneLink').href = "tel:" + phone;
+                document.getElementById('floatPhone').href = "tel:" + phone;
+                document.getElementById('contactPhoneLink').textContent = phone;
+                document.getElementById('contactPhoneLink').href = "tel:" + phone;
+                
+                // أزرار الاتصال الأخرى
+                document.getElementById('heroCallBtn').onclick = () => window.open('tel:' + phone);
+                document.getElementById('middleEmergencyBtn').onclick = () => window.open('tel:' + phone);
+                document.getElementById('bottomEmergencyBtn').onclick = () => window.open('tel:' + phone);
+
+                // 2. تحديث روابط الواتساب
+                const whatsappUrl = "https://wa.me/" + phone.replace(/[^0-9]/g, '') + "?text=Hello,%20I%20need%20plumbing%20help!";
+                document.getElementById('floatWhatsApp').href = whatsappUrl;
+                document.getElementById('contactWhatsAppLink').href = whatsappUrl;
+
+                // 3. تحديث العناوين والنصوص
+                document.getElementById('heroTitleElement').textContent = heroTitle;
+                document.getElementById('addressTextElement').textContent = address;
+            })
+            .catch(error => console.error("Error loading configurations:", error));
+
+        // أكواد القوائم والمودال العادية
         const menuToggle = document.getElementById('menuToggle');
         const navLinksMenu = document.getElementById('navLinks');
-        const dropdownElement = document.querySelector('.dropdown');
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('open');
             navLinksMenu.classList.toggle('open');
-            if(!navLinksMenu.classList.contains('open')) { dropdownElement.classList.remove('active'); }
-            document.body.style.overflow = 'auto';
         });
-
-        document.querySelectorAll('.nav-links > a, .dropdown-menu a, .about-main-link').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('open');
-                navLinksMenu.classList.remove('open');
-                dropdownElement.classList.remove('active');
-            });
-        });
-
-        const arrowToggle = document.getElementById('arrowToggle');
-        arrowToggle.addEventListener('click', (e) => {
-            if (window.innerWidth < 768) { e.preventDefault(); e.stopPropagation(); dropdownElement.classList.toggle('active'); }
-        });
-
-        document.addEventListener('click', (e) => {
-            if (dropdownElement && !dropdownElement.contains(e.target)) { dropdownElement.classList.remove('active'); }
-        });
-
-        function openBookingModal() { document.getElementById('bookingModal').classList.add('active'); const statusDiv = document.getElementById('formStatus'); statusDiv.style.display = 'none'; statusDiv.className = 'form-status'; }
+        function openBookingModal() { document.getElementById('bookingModal').classList.add('active'); }
         function closeBookingModal() { document.getElementById('bookingModal').classList.remove('active'); }
-        window.addEventListener('click', (e) => { if(e.target === document.getElementById('bookingModal')) closeBookingModal(); });
-
-        function handleSubmit(e) {
-            e.preventDefault();
-            const form = document.getElementById('bookingForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const statusDiv = document.getElementById('formStatus');
-            const name = form.name.value.trim();
-            const phone = form.phone.value.trim();
-            const service = form.service.value;
-            if(!name || !phone || !service) { statusDiv.textContent = "Please fill required fields."; statusDiv.className = "form-status error"; return; }
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            const formData = new FormData(form);
-            fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) { statusDiv.textContent = "Thank you! Your request has been submitted successfully."; statusDiv.className = "form-status success"; form.reset(); setTimeout(() => { closeBookingModal(); }, 2500); }
-                else { statusDiv.textContent = json.message || "Something went wrong. Please try again."; statusDiv.className = "form-status error"; }
-            })
-            .catch(error => { statusDiv.textContent = "Network error. Please check your connection."; statusDiv.className = "form-status error"; })
-            .then(() => { submitBtn.disabled = false; submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Request'; });
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) { const targetId = this.getAttribute('href'); if(targetId && targetId !== "#") { const target = document.querySelector(targetId); if(target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); } } });
-        });
-
-        function openLightbox(src) { const lightbox = document.getElementById('lightbox'); const img = document.getElementById('lightbox-img'); lightbox.style.display = 'flex'; img.src = src; }
-        function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; }
-
-        const tabs = document.querySelectorAll('.filter-tab');
-        const cards = document.querySelectorAll('.project-card');
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                const filter = tab.dataset.filter;
-                cards.forEach(card => { if (filter === 'all' || card.classList.contains(filter)) { card.style.display = 'block'; } else { card.style.display = 'none'; } });
-            });
-        });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
-    <script>
-        if (window.netlifyIdentity) { window.netlifyIdentity.on("init", user => { if (!user) { window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; }); } }); }
     </script>
 </body>
 </html>
