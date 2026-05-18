@@ -4,24 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
-    <!-- سكريبت الهوية من Netlify -->
+    <!-- سكريبت الهوية الأساسي -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    
-    <!-- ستايل إضافي لضمان عدم حدوث تعارض في أبعاد اللوحة -->
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f1f5f9;
-        }
-    </style>
 </head>
 <body>
-    <!-- 1. أضفنا هذا الوسم لتستهدفه اللوحة وتضع محتواها داخله ولا تظهر صفحة بيضاء -->
-    <div id="nc-root"></div>
-
-    <!-- 2. استخدمنا إصداراً مستقراً جداً يتوافق مع ملف الـ config الخاص بك -->
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <!-- استخدام النسخة المستقرة الرسمية الموصى بها لـ Netlify CMS -->
+    <script src="https://cdn.jsdelivr.net/npm/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 </body>
 </html>
-
