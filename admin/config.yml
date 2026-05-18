@@ -18,9 +18,9 @@ collections:
     files:
       - name: "general"
         label: "البيانات الأساسية للموقع"
-        file: "index.html"
+        file: "data.json" # هنا جعلنا الحفظ يتم داخل ملف بيانات نظيف
         fields:
           - { label: "رقم الهاتف المباشر", name: "phone_number", widget: "string", hint: "اكتب الرقم مع رمز الدولة مثل +2126000000" }
-          - { label: "عنوان مقر العمل", name: "address", widget: "string", hint: "مثال: Miami, FL or Ouled Teima, Morocco" }
-          - { label: "العنوان الرئيسي الكبير (Hero Title)", name: "hero_title", widget: "string", hint: "العنوان العريض الذي يظهر في بداية الموقع لشد انتباه الزبون" }
+          - { label: "عنوان مقر العمل", name: "address", widget: "string", hint: "مثال: Ouled Teima, Morocco" }
+          - { label: "العنوان الرئيسي الكبير (Hero Title)", name: "hero_title", widget: "string", hint: "العنوان العريض الذي يظهر في بداية الموقع" }
 
