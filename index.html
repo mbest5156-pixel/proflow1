@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <meta name="description" content="Professional plumbing services available 24/7. Fast, reliable repairs, installations, and maintenance for homes and businesses.">
@@ -13,337 +12,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: #ffffff;
-            color: #1a1a1a;
-            line-height: 1.6;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
-        .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1.25rem;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* --- PREMIUM GLOBAL NAVBAR STYLE --- */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1005;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #f1f5f9;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
-            transition: all 0.3s ease;
-        }
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.8rem 0;
-        }
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-            text-decoration: none;
-        }
-        .brand-pro {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            font-size: 24px;
-            color: #0f172a;
-            letter-spacing: -0.5px;
-        }
-        .brand-flow {
-            color: #0066cc;
-        }
-        .brand-tagline {
-            font-size: 8px;
-            font-weight: 700;
-            color: #94a3b8;
-            letter-spacing: 1.5px;
-            margin-top: 2px;
-            text-transform: uppercase;
-        }
-
-        /* --- BURGER ICON MENU ANIMATION --- */
-        .menu-icon {
-            width: 28px;
-            height: 20px;
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            z-index: 1006;
-        }
-        @media (min-width: 768px) {
-            .menu-icon { display: none; }
-        }
-        .menu-icon span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: #0f172a;
-            border-radius: 3px;
-            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-            transform-origin: left center;
-        }
-        .menu-icon.open span:nth-child(1) {
-            transform: rotate(45deg);
-            background-color: #ff3b3b;
-        }
-        .menu-icon.open span:nth-child(2) {
-            width: 0%;
-            opacity: 0;
-        }
-        .menu-icon.open span:nth-child(3) {
-            transform: rotate(-45deg);
-            background-color: #ff3b3b;
-        }
-
-        /* --- NAV LINKS RESPONSIVE LAYOUT --- */
-        .nav-links {
-            position: fixed;
-            top: 65px;
-            left: -100%;
-            width: 100%;
-            height: calc(100vh - 65px);
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            gap: 0;
-            transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-            z-index: 1000;
-            padding: 1.5rem 2rem 2rem 2rem;
-            overflow-y: auto;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        .nav-links.open {
-            left: 0;
-        }
-        @media (min-width: 768px) {
-            .nav-links {
-                position: static;
-                width: auto;
-                height: auto;
-                flex-direction: row;
-                padding: 0;
-                gap: 2rem;
-                background: transparent;
-                overflow-y: visible;
-                justify-content: center;
-                align-items: center;
-                border-top: none;
-            }
-        }
-        .nav-links a {
-            color: #1e293b;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-            transition: all 0.2s ease;
-            position: relative;
-            width: 100%;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        @media (min-width: 768px) {
-            .nav-links a {
-                font-size: 0.95rem;
-                color: #475569;
-                width: auto;
-                padding: 0;
-                border-bottom: none;
-            }
-            .nav-links a::after {
-                content: '';
-                position: absolute;
-                bottom: -4px;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background-color: #0066cc;
-                transition: width 0.3s ease;
-            }
-            .nav-links a:hover::after {
-                width: 100%;
-            }
-        }
-        .nav-links a:hover {
-            color: #0066cc;
-        }
-
-        /* --- DROPDOWN PREMIUM MENU STYLE --- */
-        .nav-links .dropdown {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        @media (min-width: 768px) {
-            .nav-links .dropdown {
-                display: inline-block;
-                width: auto;
-                border-bottom: none;
-            }
-        }
-        .dropdown-trigger {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-        @media (min-width: 768px) {
-            .dropdown-trigger {
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-                width: auto;
-            }
-        }
-        
-        /* التعديل هنا: جعل رابط About يملأ كامل مساحة المستطيل يساراً */
-        .dropdown-trigger a.about-main-link {
-            border-bottom: none !important;
-            padding: 1rem 0;
-            flex: 1; /* يجعله يتمدد ليأخذ كل المساحة المتبقية من العرض */
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-        @media (min-width: 768px) {
-            .dropdown-trigger a.about-main-link {
-                padding: 0;
-                flex: none;
-                width: auto;
-            }
-        }
-        
-        .dropdown-arrow {
-            color: #475569;
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            padding: 1rem 0;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px; /* مساحة ضغط مريحة للسهم فقط في اليمين */
-            height: 100%;
-        }
-        @media (min-width: 768px) {
-            .dropdown-arrow {
-                padding: 5px;
-                width: auto;
-            }
-        }
-        .dropdown-menu {
-            max-height: 0;
-            opacity: 0;
-            visibility: hidden;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            background-color: #f8fafc;
-            width: 100%;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: left;
-        }
-        @media (min-width: 768px) {
-            .dropdown-menu {
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                transform: translateX(-50%) translateY(10px);
-                background-color: #ffffff;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-                border: 1px solid #e2e8f0;
-                border-radius: 12px;
-                max-height: none;
-                opacity: 0;
-                visibility: hidden;
-                overflow: visible;
-                margin-top: 0;
-                gap: 0.5rem;
-                padding: 0;
-                width: auto;
-                min-width: 200px;
-            }
-            .dropdown:hover .dropdown-menu {
-                opacity: 1;
-                visibility: visible;
-                transform: translateX(-50%) translateY(0);
-                padding: 0.75rem;
-            }
-            .dropdown:hover .dropdown-arrow {
-                transform: rotate(180deg);
-                color: #0066cc;
-            }
-        }
-        
-        .dropdown.active .dropdown-menu {
-            max-height: 200px;
-            opacity: 1;
-            visibility: visible;
-            padding: 0 0 1rem 1.5rem;
-        }
-        .dropdown.active .dropdown-arrow {
-            transform: rotate(180deg);
-            color: #0066cc;
-        }
-        .dropdown-menu a {
-            color: #475569 !important;
-            padding: 0.8rem 0 !important;
-            font-size: 1.1rem !important;
-            font-weight: 500 !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-            width: 100%;
-        }
-        .dropdown-menu a:last-child {
-            border-bottom: none !important;
-        }
-        @media (min-width: 768px) {
-            .dropdown-menu a {
-                font-size: 0.9rem !important;
-                color: #1e293b !important;
-                text-align: left;
-                padding: 0.6rem 1rem !important;
-                border-bottom: none !important;
-                border-radius: 8px;
-            }
-            .dropdown-menu a:hover {
-                background-color: #f1f5f9;
-                color: #0066cc !important;
-            }
-            .dropdown-menu a::after { display: none !important; }
-        }
-
-        @media (max-width: 600px) {
-            .brand-pro { font-size: 21px; }
-        }
-
-        /* --- REST OF WEBSITE CSS --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background-color: #ffffff; color: #1a1a1a; line-height: 1.6; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.25rem; }
+        html { scroll-behavior: smooth; }
+        nav { position: sticky; top: 0; z-index: 1005; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #f1f5f9; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02); transition: all 0.3s ease; }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.1; text-decoration: none; }
+        .brand-pro { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 24px; color: #0f172a; letter-spacing: -0.5px; }
+        .brand-flow { color: #0066cc; }
+        .brand-tagline { font-size: 8px; font-weight: 700; color: #94a3b8; letter-spacing: 1.5px; margin-top: 2px; text-transform: uppercase; }
+        .menu-icon { width: 28px; height: 20px; position: relative; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; z-index: 1006; }
+        @media (min-width: 768px) { .menu-icon { display: none; } }
+        .menu-icon span { display: block; height: 3px; width: 100%; background-color: #0f172a; border-radius: 3px; transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); transform-origin: left center; }
+        .menu-icon.open span:nth-child(1) { transform: rotate(45deg); background-color: #ff3b3b; }
+        .menu-icon.open span:nth-child(2) { width: 0%; opacity: 0; }
+        .menu-icon.open span:nth-child(3) { transform: rotate(-45deg); background-color: #ff3b3b; }
+        .nav-links { position: fixed; top: 65px; left: -100%; width: 100%; height: calc(100vh - 65px); background: #ffffff; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 0; transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1); z-index: 1000; padding: 1.5rem 2rem 2rem 2rem; overflow-y: auto; border-top: 1px solid rgba(0, 0, 0, 0.05); }
+        .nav-links.open { left: 0; }
+        @media (min-width: 768px) { .nav-links { position: static; width: auto; height: auto; flex-direction: row; padding: 0; gap: 2rem; background: transparent; overflow-y: visible; justify-content: center; align-items: center; border-top: none; } }
+        .nav-links a { color: #1e293b; text-decoration: none; font-weight: 600; font-size: 1.2rem; transition: all 0.2s ease; position: relative; width: 100%; padding: 1rem 0; border-bottom: 1px solid rgba(0, 0, 0, 0.1); text-align: left; }
+        @media (min-width: 768px) { .nav-links a { font-size: 0.95rem; color: #475569; width: auto; padding: 0; border-bottom: none; } .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background-color: #0066cc; transition: width 0.3s ease; } .nav-links a:hover::after { width: 100%; } }
+        .nav-links a:hover { color: #0066cc; }
+        .nav-links .dropdown { position: relative; display: flex; flex-direction: column; align-items: flex-start; width: 100%; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+        @media (min-width: 768px) { .nav-links .dropdown { display: inline-block; width: auto; border-bottom: none; } }
+        .dropdown-trigger { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        @media (min-width: 768px) { .dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; width: auto; } }
+        .dropdown-trigger a.about-main-link { border-bottom: none !important; padding: 1rem 0; flex: 1; height: 100%; display: flex; align-items: center; }
+        @media (min-width: 768px) { .dropdown-trigger a.about-main-link { padding: 0; flex: none; width: auto; } }
+        .dropdown-arrow { color: #475569; font-size: 0.8rem; transition: transform 0.3s ease; cursor: pointer; padding: 1rem 0; display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 100%; }
+        @media (min-width: 768px) { .dropdown-arrow { padding: 5px; width: auto; } }
+        .dropdown-menu { max-height: 0; opacity: 0; visibility: hidden; overflow: hidden; display: flex; flex-direction: column; gap: 0; background-color: #f8fafc; width: 100%; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-align: left; }
+        @media (min-width: 768px) { .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); background-color: #ffffff; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0; border-radius: 12px; max-height: none; opacity: 0; visibility: hidden; overflow: visible; margin-top: 0; gap: 0.5rem; padding: 0; width: auto; min-width: 200px; } .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); padding: 0.75rem; } .dropdown:hover .dropdown-arrow { transform: rotate(180deg); color: #0066cc; } }
+        .dropdown.active .dropdown-menu { max-height: 200px; opacity: 1; visibility: visible; padding: 0 0 1rem 1.5rem; }
+        .dropdown.active .dropdown-arrow { transform: rotate(180deg); color: #0066cc; }
+        .dropdown-menu a { color: #475569 !important; padding: 0.8rem 0 !important; font-size: 1.1rem !important; font-weight: 500 !important; border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important; width: 100%; }
+        .dropdown-menu a:last-child { border-bottom: none !important; }
+        @media (min-width: 768px) { .dropdown-menu a { font-size: 0.9rem !important; color: #1e293b !important; text-align: left; padding: 0.6rem 1rem !important; border-bottom: none !important; border-radius: 8px; } .dropdown-menu a:hover { background-color: #f1f5f9; color: #0066cc !important; } .dropdown-menu a::after { display: none !important; } }
+        @media (max-width: 600px) { .brand-pro { font-size: 21px; } }
         .floating-buttons { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 99; }
         .float-btn { width: 56px; height: 56px; border-radius: 50%; background: #0066cc; color: white; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 8px 18px rgba(0,0,0,0.25); transition: transform 0.2s; text-decoration: none; cursor: pointer; border: none; }
         .float-btn.whatsapp { background: #25D366; }
@@ -507,13 +214,12 @@
         .hero::after { content: ''; position: absolute; top: 0; left: 0; width: 80%; height: 50%; background-image: url(''); background-size: cover; background-position: center; opacity: 0.25; z-index: 2; }
         .hero .container { position: relative; z-index: 3; }
     </style>
-	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-
+    <!-- التعديل: ربط رقم الهاتف العلوي باللوحة -->
     <div class="top-bar">
-        <a href="tel:+5550000000" class="phone-number">
-            <i class="fas fa-phone-alt"></i> 📞 Call Now: (555) 000-0000
+        <a href="tel:{{phone_number}}" class="phone-number" data-cms-field="phone_number">
+            <i class="fas fa-phone-alt"></i> 📞 Call Now: {{phone_number}}
         </a>
     </div>
 
@@ -534,22 +240,17 @@
                         </div>
                     </a>
                 </div>
-
                 <div class="menu-icon" id="menuToggle">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-
                 <div class="nav-links" id="navLinks">
                     <a href="#home">Home</a>
                     <a href="#services">Services</a>
-                    
                     <div class="dropdown">
                         <div class="dropdown-trigger">
-                            <!-- التعديل هنا: رابط About يملأ كل المساحة المتبقية من المستطيل يساراً بفضل كلاس CSS المعدل -->
                             <a href="#about" class="about-main-link">About</a>
-                            <!-- السهم مستقل ومحمي في أقصى اليمين لفتح القائمة فقط -->
                             <span class="dropdown-arrow" id="arrowToggle"><i class="fas fa-chevron-down"></i></span>
                         </div>
                         <div class="dropdown-menu">
@@ -557,7 +258,6 @@
                             <a href="#serviceareas">Service Areas</a>
                         </div>
                     </div>
-
                     <a href="#reviews">Reviews</a>
                     <a href="#gallery">Our Work</a>
                     <a href="#contact">Contact</a>
@@ -566,10 +266,10 @@
         </div>
     </nav>
 
-    <!-- Floating Action Buttons -->
+    <!-- Floating Action Buttons: مربوطة ديناميكياً -->
     <div class="floating-buttons">
-        <a href="tel:+212614441087" class="float-btn phone"><i class="fas fa-phone-alt"></i></a>
-        <a href="https://wa.me/212614441087?text=Hello,%20I%20need%20help%20with%20an%20emergency%20repair!" target="_blank" class="float-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:{{phone_number}}" class="float-btn phone" data-cms-field="phone_number"><i class="fas fa-phone-alt"></i></a>
+        <a href="https://wa.me/{{phone_number}}?text=Hello,%20I%20need%20help%20with%20an%20emergency%20repair!" target="_blank" class="float-btn whatsapp" data-cms-field="phone_number"><i class="fab fa-whatsapp"></i></a>
     </div>
 
     <!-- Hero Section -->
@@ -586,7 +286,7 @@
                     <p>Fast, reliable, and expert plumbing solutions for your home and business. Available 24/7 for emergencies.</p>
                     <div class="hero-buttons-wrapper">
                         <div class="hero-buttons">
-                            <button class="btn btn-call" onclick="window.open('tel:+212614441087')"><i class="fas fa-phone"></i> Call Now</button>
+                            <button class="btn btn-call" onclick="window.open('tel:{{phone_number}}')" data-cms-field="phone_number"><i class="fas fa-phone"></i> Call Now</button>
                             <button class="btn btn-service" onclick="openBookingModal()"><i class="fas fa-tools"></i> Request Service</button>
                             <a href="#reviews" class="btn btn-google-review">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo">
@@ -702,7 +402,7 @@
                 <h2>Need Emergency Plumbing Help?</h2>
                 <p>Call Now For Fast Same-Day Service</p>
             </div>
-            <a href="tel:+212614441087" class="btn btn-call"><i class="fas fa-phone"></i> Emergency Call</a>
+            <a href="tel:{{phone_number}}" class="btn btn-call" data-cms-field="phone_number"><i class="fas fa-phone"></i> Emergency Call</a>
         </div>
     </section>
 
@@ -741,8 +441,7 @@
             </div>
             <div class="filter-tabs">
                 <button class="filter-tab active" data-filter="all">All Projects</button>
-                <button class="filter-tab" data-filter="repair">Repairs</button>
-                <button class="filter-tab" data-filter="installation">Installations</button>
+                <button class="filter-tab" data-filter="repair">Repairs</button> <button class="filter-tab" data-filter="installation">Installations</button>
                 <button class="filter-tab" data-filter="drain">Drain Cleaning</button>
             </div>
             <div class="portfolio-grid">
@@ -806,24 +505,26 @@
                     <div class="contact-methods-list">
                         <div class="method-item">
                             <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
-                            <div class="method-text"><span>Give Us a Call</span><a href="tel:+15550000000">(555) 000-0000</a></div>
+                            <!-- تعديل الهاتف هُنا -->
+                            <div class="method-text"><span>Give Us a Call</span><a href="tel:{{phone_number}}" data-cms-field="phone_number">{{phone_number}}</a></div>
                         </div>
                         <div class="method-item">
                             <div class="method-icon"><i class="fab fa-whatsapp"></i></div>
-                            <div class="method-text"><span>WhatsApp Support</span><a href="https://wa.me/212614441087">Chat With an Expert</a></div>
+                            <div class="method-text"><span>WhatsApp Support</span><a href="https://wa.me/{{phone_number}}" data-cms-field="phone_number">Chat With an Expert</a></div>
                         </div>
                         <div class="method-item">
                             <div class="method-icon"><i class="fas fa-envelope"></i></div>
                             <div class="method-text"><span>Email Inquiries</span><a href="mailto:info@proflow.com">info@proflowplumbing.com</a></div>
                         </div>
                     </div>
-                    <div class="service-area-badge"><i class="fas fa-map-marker-alt"></i><span>Proudly Serving All Miami-Dade County Areas</span></div>
+                    <!-- تعديل العنوان هُنا ليرتبط باللوحة -->
+                    <div class="service-area-badge"><i class="fas fa-map-marker-alt"></i><span data-cms-field="address">Proudly Serving: {{address}}</span></div>
                 </div>
                 <div class="contact-visual-side">
                     <div class="emergency-box">
                         <div class="emergency-header"><div class="pulse-red"></div><h3>24/7 Emergency Dispatch</h3></div>
                         <p>Average arrival time: <strong>45-60 minutes</strong></p>
-                        <button class="btn-emergency-now" onclick="window.open('tel:+212614441087')"><i class="fas fa-bolt"></i> GET EMERGENCY HELP NOW</button>
+                        <button class="btn-emergency-now" onclick="window.open('tel:{{phone_number}}')" data-cms-field="phone_number"><i class="fas fa-bolt"></i> GET EMERGENCY HELP NOW</button>
                         <div class="trust-icons-mini"><span><i class="fas fa-certificate"></i> Licensed</span><span><i class="fas fa-shield-alt"></i> Insured</span><span><i class="fas fa-star"></i> 5-Star Rated</span></div>
                     </div>
                 </div>
@@ -845,7 +546,7 @@
                 <div class="area-card"><i class="fas fa-map-marker-alt"></i><h3>West Suburbs</h3><p>Response within 35 mins</p></div>
             </div>
             <div class="areas-footer" style="text-align: center; margin-top: 3rem;">
-                <p style="font-weight: 700; color: #0f172a;">Don't see your area? <a href="tel:+212614441087" style="color: #059669; text-decoration: none;">Call us anyway</a>, we might still be able to reach you!</p>
+                <p style="font-weight: 700; color: #0f172a;">Don't see your area? <a href="tel:{{phone_number}}" style="color: #059669; text-decoration: none;" data-cms-field="phone_number">Call us anyway</a>, we might still be able to reach you!</p>
             </div>
         </div>
     </section>
@@ -874,7 +575,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 ProFlow Plumbing. All Rights Reserved – Fast & Reliable Service 24/7</p>
+            <p>&copy; 2026 ProFlow Plumbing. All Rights Reserved – Fast & Reliable Service 24/7</p>
             <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.2rem;">
                 <a href="#" style="color:#94a3b8; text-decoration:none;">Facebook</a>
                 <a href="#" style="color:#94a3b8; text-decoration:none;">Instagram</a>
@@ -883,22 +584,16 @@
     </footer>
 
     <script>
-        // Toggle mobile menu
         const menuToggle = document.getElementById('menuToggle');
         const navLinksMenu = document.getElementById('navLinks');
         const dropdownElement = document.querySelector('.dropdown');
-
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('open');
             navLinksMenu.classList.toggle('open');
-            
-            if(!navLinksMenu.classList.contains('open')) {
-                dropdownElement.classList.remove('active');
-            }
-            document.body.style.overflow = 'auto'; 
+            if(!navLinksMenu.classList.contains('open')) { dropdownElement.classList.remove('active'); }
+            document.body.style.overflow = 'auto';
         });
 
-        // Close menu on normal link clicks (including the About link itself)
         document.querySelectorAll('.nav-links > a, .dropdown-menu a, .about-main-link').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('open');
@@ -907,38 +602,19 @@
             });
         });
 
-        // Control dropdown arrow for mobile ONLY
         const arrowToggle = document.getElementById('arrowToggle');
         arrowToggle.addEventListener('click', (e) => {
-            if (window.innerWidth < 768) {
-                e.preventDefault();
-                e.stopPropagation(); 
-                dropdownElement.classList.toggle('active'); 
-            }
+            if (window.innerWidth < 768) { e.preventDefault(); e.stopPropagation(); dropdownElement.classList.toggle('active'); }
         });
 
-        // Close dropdown when clicking anywhere else
         document.addEventListener('click', (e) => {
-            if (dropdownElement && !dropdownElement.contains(e.target)) {
-                dropdownElement.classList.remove('active');
-            }
+            if (dropdownElement && !dropdownElement.contains(e.target)) { dropdownElement.classList.remove('active'); }
         });
 
-        // Modal logic
-        function openBookingModal() {
-            document.getElementById('bookingModal').classList.add('active');
-            const statusDiv = document.getElementById('formStatus');
-            statusDiv.style.display = 'none';
-            statusDiv.className = 'form-status';
-        }
-        function closeBookingModal() {
-            document.getElementById('bookingModal').classList.remove('active');
-        }
-        window.addEventListener('click', (e) => {
-            if(e.target === document.getElementById('bookingModal')) closeBookingModal();
-        });
+        function openBookingModal() { document.getElementById('bookingModal').classList.add('active'); const statusDiv = document.getElementById('formStatus'); statusDiv.style.display = 'none'; statusDiv.className = 'form-status'; }
+        function closeBookingModal() { document.getElementById('bookingModal').classList.remove('active'); }
+        window.addEventListener('click', (e) => { if(e.target === document.getElementById('bookingModal')) closeBookingModal(); });
 
-        // Handle Web3Forms submission
         function handleSubmit(e) {
             e.preventDefault();
             const form = document.getElementById('bookingForm');
@@ -947,69 +623,27 @@
             const name = form.name.value.trim();
             const phone = form.phone.value.trim();
             const service = form.service.value;
-
-            if(!name || !phone || !service) {
-                statusDiv.textContent = "Please fill required fields.";
-                statusDiv.className = "form-status error";
-                return;
-            }
-
+            if(!name || !phone || !service) { statusDiv.textContent = "Please fill required fields."; statusDiv.className = "form-status error"; return; }
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             const formData = new FormData(form);
-
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            })
+            fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
             .then(async (response) => {
                 let json = await response.json();
-                if (response.status == 200) {
-                    statusDiv.textContent = "Thank you! Your request has been submitted successfully.";
-                    statusDiv.className = "form-status success";
-                    form.reset();
-                    setTimeout(() => { closeBookingModal(); }, 2500);
-                } else {
-                    statusDiv.textContent = json.message || "Something went wrong. Please try again.";
-                    statusDiv.className = "form-status error";
-                }
+                if (response.status == 200) { statusDiv.textContent = "Thank you! Your request has been submitted successfully."; statusDiv.className = "form-status success"; form.reset(); setTimeout(() => { closeBookingModal(); }, 2500); }
+                else { statusDiv.textContent = json.message || "Something went wrong. Please try again."; statusDiv.className = "form-status error"; }
             })
-            .catch(error => {
-                statusDiv.textContent = "Network error. Please check your connection.";
-                statusDiv.className = "form-status error";
-            })
-            .then(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Request';
-            });
+            .catch(error => { statusDiv.textContent = "Network error. Please check your connection."; statusDiv.className = "form-status error"; })
+            .then(() => { submitBtn.disabled = false; submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Request'; });
         }
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if(targetId && targetId !== "#") {
-                    const target = document.querySelector(targetId);
-                    if(target) {
-                        e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
+            anchor.addEventListener('click', function(e) { const targetId = this.getAttribute('href'); if(targetId && targetId !== "#") { const target = document.querySelector(targetId); if(target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); } } });
         });
 
-        // Lightbox
-        function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            lightbox.style.display = 'flex';
-            img.src = src;
-        }
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
+        function openLightbox(src) { const lightbox = document.getElementById('lightbox'); const img = document.getElementById('lightbox-img'); lightbox.style.display = 'flex'; img.src = src; }
+        function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; }
 
-        // Gallery Filtering
         const tabs = document.querySelectorAll('.filter-tab');
         const cards = document.querySelectorAll('.project-card');
         tabs.forEach(tab => {
@@ -1017,29 +651,14 @@
                 tabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 const filter = tab.dataset.filter;
-                cards.forEach(card => {
-                    if (filter === 'all' || card.classList.contains(filter)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+                cards.forEach(card => { if (filter === 'all' || card.classList.contains(filter)) { card.style.display = 'block'; } else { card.style.display = 'none'; } });
             });
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
-	
-	<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
+    <script>
+        if (window.netlifyIdentity) { window.netlifyIdentity.on("init", user => { if (!user) { window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; }); } }); }
+    </script>
 </body>
 </html>
 
