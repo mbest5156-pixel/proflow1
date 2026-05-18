@@ -1,8 +1,3 @@
----
-phone_number: "33333333"
-address: HI hauak whsisj
-hero_title: "Hi world "
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -221,7 +216,7 @@ hero_title: "Hi world "
     </style>
 </head>
 <body>
-    <!-- التعديل: ربط رقم الهاتف العلوي باللوحة -->
+    <!-- تم ضبط الحقل هنا ليستبدل رقم الهاتف الوهمي بدقة -->
     <div class="top-bar">
         <a href="tel:{{phone_number}}" class="phone-number" data-cms-field="phone_number">
             <i class="fas fa-phone-alt"></i> 📞 Call Now: {{phone_number}}
@@ -271,7 +266,7 @@ hero_title: "Hi world "
         </div>
     </nav>
 
-    <!-- Floating Action Buttons: مربوطة ديناميكياً -->
+    <!-- الأزرار العائمة مرتبطة ديناميكياً برقم الهاتف من اللوحة -->
     <div class="floating-buttons">
         <a href="tel:{{phone_number}}" class="float-btn phone" data-cms-field="phone_number"><i class="fas fa-phone-alt"></i></a>
         <a href="https://wa.me/{{phone_number}}?text=Hello,%20I%20need%20help%20with%20an%20emergency%20repair!" target="_blank" class="float-btn whatsapp" data-cms-field="phone_number"><i class="fab fa-whatsapp"></i></a>
@@ -285,9 +280,10 @@ hero_title: "Hi world "
                     <div class="premium-badge">
                         <span>Licensed &amp; Insured</span>
                         <div class="badge-divider"></div>
-                        <span> Miami Experts</span>
+                        <span>Plumbing Experts</span>
                     </div>
-                    <h1>Fast, Reliable & Professional Plumbing Services</h1>
+                    <!-- هُنا تم ربط العنوان الكبير ليتبدل مباشرة مما يكتب في اللوحة بدقة مكان النص القديم -->
+                    <h1 data-cms-field="hero_title">{{hero_title}}</h1>
                     <p>Fast, reliable, and expert plumbing solutions for your home and business. Available 24/7 for emergencies.</p>
                     <div class="hero-buttons-wrapper">
                         <div class="hero-buttons">
@@ -340,7 +336,7 @@ hero_title: "Hi world "
             <div class="section-title">
                 <span style="color: #0066cc; font-weight: 800; letter-spacing: 2px; font-size: 14px; text-transform: uppercase;">Professional Solutions</span>
                 <h2 style="font-size: 2.5rem; margin-top: 10px;">Our Plumbing Services</h2>
-                <p>Reliable plumbing solutions tailored for Miami homes and businesses.</p>
+                <p>Reliable plumbing solutions tailored for modern homes and businesses.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -421,8 +417,8 @@ hero_title: "Hi world "
                 </div>
                 <div class="about-content-text">
                     <span class="sub-label">Our Story</span>
-                    <h2>Setting the Standard in Miami Plumbing</h2>
-                    <p>Founded on the principles of integrity and unmatched craftsmanship, ProFlow Plumbing has grown from a local family business into one of Miami's most trusted service providers. We don't just fix pipes; we provide peace of mind through engineering excellence.</p>
+                    <h2>Setting the Standard in Professional Plumbing</h2>
+                    <p>Founded on the principles of integrity and unmatched craftsmanship, ProFlow Plumbing has grown into one of the most trusted service providers. We don't just fix pipes; we provide peace of mind through engineering excellence.</p>
                     <div class="values-list">
                         <div class="value-item"><i class="fas fa-check-circle"></i> <span>Upfront Pricing</span></div>
                         <div class="value-item"><i class="fas fa-check-circle"></i> <span>Licensed Experts</span></div>
@@ -442,7 +438,7 @@ hero_title: "Hi world "
         <div class="container">
             <div class="section-title">
                 <h2>Our Recent Projects</h2>
-                <p>Quality plumbing solutions delivered across Miami-Dade. Take a look at our latest success stories.</p>
+                <p>Quality plumbing solutions delivered across the region. Take a look at our latest success stories.</p>
             </div>
             <div class="filter-tabs">
                 <button class="filter-tab active" data-filter="all">All Projects</button>
@@ -455,14 +451,14 @@ hero_title: "Hi world "
                         <img src="https://i.postimg.cc/NLhrFtVM/classicairecare-man-8689628.jpg" alt="Emergency Repair">
                         <div class="project-overlay" onclick="openLightbox(this.parentElement.querySelector('img').src)"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="project-info"><span class="project-tag">Emergency Repair</span><h3>Kitchen Pipe Replacement</h3><p>Fixed a major burst pipe in Coral Gables home.</p></div>
+                    <div class="project-info"><span class="project-tag">Emergency Repair</span><h3>Kitchen Pipe Replacement</h3><p>Fixed a major burst pipe in local home.</p></div>
                 </div>
                 <div class="project-card installation">
                     <div class="project-image">
                         <img src="https://i.postimg.cc/hGrm4Hcd/pexels-hoang-nc-483165236-16047354.jpg" alt="Bathroom Upgrade">
                         <div class="project-overlay" onclick="openLightbox(this.parentElement.querySelector('img').src)"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="project-info"><span class="project-tag">Installation</span><h3>Luxury Faucet Upgrade</h3><p>Modern fixture installation in Miami Beach.</p></div>
+                    <div class="project-info"><span class="project-tag">Installation</span><h3>Luxury Faucet Upgrade</h3><p>Modern fixture installation.</p></div>
                 </div>
                 <div class="project-card drain">
                     <div class="project-image">
@@ -476,7 +472,7 @@ hero_title: "Hi world "
                         <img src="https://i.postimg.cc/J03PRp6b/stevepb-plumbing-840835-1920.jpg" alt="Water Heater">
                         <div class="project-overlay" onclick="openLightbox(this.parentElement.querySelector('img').src)"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="project-info"><span class="project-tag">Water Heater</span><h3>Tankless System Install</h3><p>Energy-efficient heater setup in Brickell.</p></div>
+                    <div class="project-info"><span class="project-tag">Water Heater</span><h3>Tankless System Install</h3><p>Energy-efficient heater setup.</p></div>
                 </div>
             </div>
         </div>
@@ -510,7 +506,7 @@ hero_title: "Hi world "
                     <div class="contact-methods-list">
                         <div class="method-item">
                             <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
-                            <!-- تعديل الهاتف هُنا -->
+                            <!-- هُنا تم الاستبدال بدقة برقم الهاتف الفعلي -->
                             <div class="method-text"><span>Give Us a Call</span><a href="tel:{{phone_number}}" data-cms-field="phone_number">{{phone_number}}</a></div>
                         </div>
                         <div class="method-item">
@@ -519,10 +515,10 @@ hero_title: "Hi world "
                         </div>
                         <div class="method-item">
                             <div class="method-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="method-text"><span>Email Inquiries</span><a href="mailto:info@proflow.com">info@proflowplumbing.com</a></div>
+                            <div class="method-text"><span>Email Inquiries</span><a href="mailto:info@proflowplumbing.com">info@proflowplumbing.com</a></div>
                         </div>
                     </div>
-                    <!-- تعديل العنوان هُنا ليرتبط باللوحة -->
+                    <!-- هُنا تم ربط مكان المقر بالعنوان الفعلي المستلم من لوحة التحكم -->
                     <div class="service-area-badge"><i class="fas fa-map-marker-alt"></i><span data-cms-field="address">Proudly Serving: {{address}}</span></div>
                 </div>
                 <div class="contact-visual-side">
@@ -542,7 +538,7 @@ hero_title: "Hi world "
         <div class="container">
             <div class="service-header" style="text-align: center; margin-bottom: 3rem;">
                 <h2 style="font-size: 2.5rem; color: #1e293b; font-weight: 800;">Our Service Areas</h2>
-                <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 1rem auto 0;">We provide fast, 24/7 emergency plumbing services across the following regions.</p>
+                <p style="color: #64748b; font-size: 1.1rem; max-width: 600px; margin: 1rem auto 0;">We provide fast, 24/7 emergency plumbing services across the region.</p>
             </div>
             <div class="areas-grid">
                 <div class="area-card"><i class="fas fa-map-marker-alt"></i><h3>Main City Center</h3><p>Response within 20 mins</p></div>
