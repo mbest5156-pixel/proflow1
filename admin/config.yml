@@ -1,8 +1,8 @@
 backend:
   name: git-gateway
-  branch: main # اسم الفرع الرئيسي في جيتهاب
+  branch: main
 
-media_folder: "images" # المجلد الذي ستُرفع إليه الصور
+media_folder: "images"
 
 collections:
   - name: "settings"
@@ -14,3 +14,4 @@ collections:
         fields:
           - { label: "رقم الهاتف", name: "phone_number", widget: "string" }
           - { label: "عنوان العمل", name: "address", widget: "string" }
+
